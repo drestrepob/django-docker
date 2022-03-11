@@ -1,0 +1,13 @@
+version: '3.4'
+
+# BASE CONFIG: applies to all environments. It does not work alone
+
+services:
+  web:
+    image: project_name:latest
+    container_name: project_name-web
+    volumes:
+      - static:/src/project_name/static
+
+volumes:
+  static:
