@@ -24,8 +24,12 @@ if get_secret('DATABASE_URL'):
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': get_secret('DATABASE_NAME'),
+            'USER': get_secret('DATABASE_USER'),
+            'PASSWORD': get_secret('DATABASE_PASSWORD'),
+            'HOST': get_secret('DATABASE_HOST'),
+            'PORT': get_secret('DATABASE_PORT'),
         }
     }
 
@@ -52,7 +56,7 @@ CORS_ALLOW_HEADERS = [
 # STORAGE #
 ###########
 
-USE_S3 = get_secret('DEBUG')
+USE_S3 = get_secret('DEBUG') == "True"
 
 if USE_S3:
     # AWS settings

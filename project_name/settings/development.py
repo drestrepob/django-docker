@@ -1,5 +1,3 @@
-import os
-
 from .common import *
 from .partials.utils import get_secret
 
@@ -17,6 +15,7 @@ DEBUG = get_secret('DEBUG')
 
 ALLOWED_HOSTS = get_secret('ALLOWED_HOSTS')
 
+
 def show_toolbar(request):
     """
     The default callback checks if the IP is internal, but docker's IP
@@ -24,7 +23,8 @@ def show_toolbar(request):
     :param request: The intercepted request
     :return: True OR False
     """
-    return get_secret('DEBUG_TOOLBAR')
+    return get_secret('DEBUG_TOOLBAR') == "True"
+
 
 DEV_APPS = [
     'corsheaders',
@@ -53,10 +53,6 @@ DEBUG_TOOLBAR_CONFIG = {
     ),
 }
 
-############
-# DATABASE #
-############
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -70,17 +66,3 @@ DATABASES = {
         'PORT': get_secret('DATABASE_PORT'),
     }
 }
-
-
-###########
-# STATICS #
-###########
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -4,7 +4,6 @@ version: '3.4'
 
 services:
   web:
-    image: project_name:latest
     container_name: project_name-web
     volumes:
       - static:/src/project_name/static

@@ -36,9 +36,6 @@ djangorestframework==3.13.1
 # REST Framework JWT Authentication
 djangorestframework-simplejwt==4.4.0
 
-# Docker Compose requires Python 3.6 or later
-docker-compose==1.26.2
-
 # Automated generation of real Swagger/OpenAPI 2.0 schemas from Django Rest Framework code
 drf-yasg==1.20.0
 

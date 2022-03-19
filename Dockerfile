@@ -9,8 +9,6 @@ ENV PYTHONUNBUFFERED=1
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
     build-essential \
     libpq-dev \
-    libjpeg62-turbo-dev \
-    zlib1g-dev \
     libwebp-dev \
     gettext \
  && rm -rf /var/lib/apt/lists/*
@@ -26,6 +24,7 @@ RUN pip install -r /src/requirements.txt
 RUN pip install -r /src/test-requirements.txt
 
 # Copy the project files
+COPY .coveragerc .
 COPY apps/ apps/
 COPY project_name/ project_name/
 COPY manage.py .
