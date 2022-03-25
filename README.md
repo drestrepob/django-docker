@@ -65,7 +65,7 @@ Use this template to start the backend development of your projects with Django
 
 Clone the repository, and update your origin url: 
 ```
-git clone https://github.com/drestrepob/django-heroku.git project_name
+https://github.com/drestrepob/django-docker.git project_name
 cd project_name
 ```
 
